@@ -9,7 +9,7 @@ public class PetCase {
     @Column(name = "case_id")
     private String case_id;
 
-    @Column(name = "created_at", nullable = false, unique = true)
+    @Column(name = "created_at", nullable = false)
     private Long created_at;
 
     @Column(name = "type", nullable = false)

@@ -11,22 +11,22 @@ import javax.persistence.Table;
 public class Official extends UserApp {
 
     @Column(name = "name", nullable = false)
-    private Long name;
+    private String name;
 
     public Official() {
     }
 
-    public Official(String username, String password, String email, String role, Long name) {
-        super(username, password, email, role);
+    public Official(String username, String password, String email,  String name) {
+        super(username, password, email, "official");
         this.name = name;
     }
 
 
-    public Long getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Long name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

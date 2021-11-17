@@ -1,26 +1,25 @@
 package co.edu.unbosque.securitytutorial.resources.pojos;
 
+import co.edu.unbosque.securitytutorial.jpa.entities.Pet;
+import co.edu.unbosque.securitytutorial.jpa.entities.Vet;
+import co.edu.unbosque.securitytutorial.jpa.entities.Visit;
+
 public class VisitPOJO {
 
     private String visit_id;
-
-    private String create_at;
-
+    private String created_at;
     private String type;
-
-    private Long description;
-
-    private String pet_id;
-
-    private String vet_id;
+    private String description;
+    private Pet pet_id;
+    private Vet vet_id;
 
     public VisitPOJO() {
 
     }
 
-    public VisitPOJO(String visit_id, String create_at, String type, Long description, String pet_id, String vet_id) {
+    public VisitPOJO(String visit_id, String created_at, String type, String description, Pet pet_id, Vet vet_id) {
         this.visit_id = visit_id;
-        this.create_at = create_at;
+        this.created_at = created_at;
         this.type = type;
         this.description = description;
         this.pet_id = pet_id;
@@ -35,12 +34,12 @@ public class VisitPOJO {
         this.visit_id = visit_id;
     }
 
-    public String getCreate_at() {
-        return create_at;
+    public String getCreated_at() {
+        return created_at;
     }
 
-    public void setCreate_at(String create_at) {
-        this.create_at = create_at;
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
     public String getType() {
@@ -51,27 +50,27 @@ public class VisitPOJO {
         this.type = type;
     }
 
-    public Long getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Long description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getPet_id() {
+    public Pet getPet_id() {
         return pet_id;
     }
 
-    public void setPet_id(String pet_id) {
+    public void setPet_id(Pet pet_id) {
         this.pet_id = pet_id;
     }
 
-    public String getVet_id() {
+    public Vet getVet_id() {
         return vet_id;
     }
 
-    public void setVet_id(String vet_id) {
+    public void setVet_id(Vet vet_id) {
         this.vet_id = vet_id;
     }
 }

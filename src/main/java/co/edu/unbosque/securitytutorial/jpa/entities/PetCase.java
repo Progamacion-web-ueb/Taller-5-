@@ -10,14 +10,13 @@ public class PetCase {
     private String case_id;
 
     @Column(name = "created_at", nullable = false)
-    private Long created_at;
+    private String created_at;
 
     @Column(name = "type", nullable = false)
     private String type;
 
     @Column(name = "description", nullable = false)
     private String description;
-
 
     @ManyToOne()
     @JoinColumn(name="pet_id", referencedColumnName="pet_id")
@@ -26,11 +25,19 @@ public class PetCase {
     public PetCase() {
     }
 
+    public PetCase(String case_id, String created_at, String type, String description, Pet pet) {
+        this.case_id = case_id;
+        this.created_at = created_at;
+        this.type = type;
+        this.description = description;
+        this.pet = pet;
+    }
+
     public String getCase_id() {
         return case_id;
     }
 
-    public Long getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
@@ -46,7 +53,7 @@ public class PetCase {
         this.case_id = case_id;
     }
 
-    public void setCreated_at(Long created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
 
@@ -56,5 +63,13 @@ public class PetCase {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }

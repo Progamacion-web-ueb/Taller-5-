@@ -11,7 +11,7 @@ public class Visit {
     private String visit_id;
 
     @Column(name = "created_at", nullable = false)
-    private Long created_at;
+    private String created_at;
 
     @Column(name = "type", nullable = false)
     private String type;
@@ -27,11 +27,16 @@ public class Visit {
     @JoinColumn(name="pet_id", referencedColumnName="pet_id")
     private Pet pet;
 
-
-
-
-
     public Visit() {
+    }
+
+    public Visit(String visit_id, String created_at, String type, String description,  Pet pet,Vet vet) {
+        this.visit_id = visit_id;
+        this.created_at = created_at;
+        this.type = type;
+        this.description = description;
+        this.pet = pet;
+        this.vet = vet;
     }
 
     public String getVisit_id() {
@@ -42,11 +47,11 @@ public class Visit {
         this.visit_id = visit_id;
     }
 
-    public Long getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(Long created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
 
@@ -66,5 +71,19 @@ public class Visit {
         this.description = description;
     }
 
+    public Vet getVet() {
+        return vet;
+    }
 
+    public void setVet(Vet vet) {
+        this.vet = vet;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
 }

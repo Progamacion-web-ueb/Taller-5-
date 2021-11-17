@@ -33,6 +33,16 @@ public class OfficialResource {
 
     }
 
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response Update(String officialid) {
+        return Response.serverError()
+                .entity("Owner user could not be created")
+                .build();
+
+    }
+
     @Logged
     @GET
     @Produces(MediaType.TEXT_PLAIN)

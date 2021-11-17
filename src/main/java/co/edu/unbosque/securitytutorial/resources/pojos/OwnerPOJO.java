@@ -16,6 +16,7 @@ public class OwnerPOJO {
 
     private String neighborhood;
 
+
     public OwnerPOJO() {
     }
 

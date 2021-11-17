@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 @Table(name = "Owner")
 @PrimaryKeyJoinColumn
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Owner extends UserApp {
 
     @Column(name = "person_id", nullable = false, unique = true)

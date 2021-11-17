@@ -1,14 +1,16 @@
 package co.edu.unbosque.securitytutorial.resources.pojos;
 
+import co.edu.unbosque.securitytutorial.jpa.entities.Owner;
+
 public class PetPOJO {
 
     private String pet_id;
 
-    private String microchip;
+    private Long microchip;
 
     private String name;
 
-    private Long species;
+    private String species;
 
     private String race;
 
@@ -18,13 +20,13 @@ public class PetPOJO {
 
     private String picture;
 
-    private String owner_id;
+    private Owner owner_id;
 
     public PetPOJO() {
     }
 
-    public PetPOJO(String pet_id, String microchip, String name, Long species,
-                   String race, String size, String sex, String picture, String owner_id) {
+    public PetPOJO(String pet_id, Long microchip, String name, String species,
+                   String race, String size, String sex, String picture, Owner owner_id) {
         this.pet_id = pet_id;
         this.microchip = microchip;
         this.name = name;
@@ -44,11 +46,11 @@ public class PetPOJO {
         this.pet_id = pet_id;
     }
 
-    public String getMicrochip() {
+    public Long getMicrochip() {
         return microchip;
     }
 
-    public void setMicrochip(String microchip) {
+    public void setMicrochip(Long microchip) {
         this.microchip = microchip;
     }
 
@@ -60,11 +62,11 @@ public class PetPOJO {
         this.name = name;
     }
 
-    public Long getSpecies() {
+    public String getSpecies() {
         return species;
     }
 
-    public void setSpecies(Long species) {
+    public void setSpecies(String species) {
         this.species = species;
     }
 
@@ -100,11 +102,11 @@ public class PetPOJO {
         this.picture = picture;
     }
 
-    public String getOwner_id() {
+    public Owner getOwner_id() {
         return owner_id;
     }
 
-    public void setOwner_id(String owner_id) {
+    public void setOwner_id(Owner owner_id) {
         this.owner_id = owner_id;
     }
 }

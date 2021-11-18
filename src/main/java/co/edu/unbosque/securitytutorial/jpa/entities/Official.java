@@ -1,13 +1,17 @@
 package co.edu.unbosque.securitytutorial.jpa.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "official")
 @Entity
 @PrimaryKeyJoinColumn
+@NamedQueries({
+        @NamedQuery(name = "Official.findByUsername",
+                query = "SELECT a FROM Official a WHERE a.username = :username"),
+        @NamedQuery(name = "Official.update",
+                query = "UPDATE Official AS c  SET c.name=:name")
+})
+
 public class Official extends UserApp {
 
     @Column(name = "name", nullable = false)

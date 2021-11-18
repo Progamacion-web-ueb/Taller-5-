@@ -1,10 +1,15 @@
 package co.edu.unbosque.securitytutorial.resources;
 
+import co.edu.unbosque.securitytutorial.jpa.entities.Official;
+import co.edu.unbosque.securitytutorial.jpa.repositories.OfficialRepositoryImpl;
 import co.edu.unbosque.securitytutorial.resources.filters.Logged;
 import co.edu.unbosque.securitytutorial.resources.pojos.OfficialPOJO;
 import co.edu.unbosque.securitytutorial.services.OfficialService;
 //import co.edu.unbosque.securitytutorial.services.;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -30,17 +35,24 @@ public class OfficialResource {
                     .entity("Owner user could not be created")
                     .build();
         }
-
     }
 
     @PUT
+    @Path("/{username}")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response Update(String officialid) {
-        return Response.serverError()
-                .entity("Owner user could not be created")
-                .build();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response Update( @PathParam("username") String username,String name) {
 
+        Official official1 = new OfficialService().update(username,name);
+        if (official1.getName().equals(name)) {
+            return Response.status(Response.Status.CREATED)
+                    .entity(official1.getUsername()+" updated")
+                    .build();
+        } else {
+            return Response.status(Response.Status.CREATED)
+                    .entity(official1.getUsername()+" updated")
+                    .build();
+        }
     }
 
     @Logged
@@ -57,4 +69,5 @@ public class OfficialResource {
                 .entity("Hello, World, " + role + "!")
                 .build();
     }
+
 }

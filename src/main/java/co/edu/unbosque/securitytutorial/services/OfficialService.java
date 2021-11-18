@@ -23,7 +23,6 @@ public class OfficialService {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         officialRepository = new OfficialRepositoryImpl(entityManager);
-
         Official  official = new Official(officialPOJO.getUsername(),officialPOJO.getPassword(),officialPOJO.getEmail(),officialPOJO.getName());
 
         Optional<Official> persistedOfficial = officialRepository.save(official);
@@ -38,6 +37,20 @@ public class OfficialService {
         }else {
             return Optional.empty();
         }
+    }
+
+    public Official update(String username,String name) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        officialRepository = new OfficialRepositoryImpl(entityManager);
+        Official official= officialRepository.Update(username,name);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return official;
 
     }
 

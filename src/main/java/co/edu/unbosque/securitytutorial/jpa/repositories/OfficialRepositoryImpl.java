@@ -1,7 +1,6 @@
 package co.edu.unbosque.securitytutorial.jpa.repositories;
 
 import co.edu.unbosque.securitytutorial.jpa.entities.Official;
-
 import javax.persistence.EntityManager;
 import java.util.Optional;
 
@@ -24,5 +23,14 @@ public class OfficialRepositoryImpl implements  OfficialRepository{
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Official Update(String username,String name) {
+        Official official = entityManager.createNamedQuery("Official.update",Official.class)
+                //.setParameter("username", username)
+                .setParameter("name", name)
+                .getSingleResult();
+        return official ;
     }
 }

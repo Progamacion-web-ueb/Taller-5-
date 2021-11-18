@@ -1,6 +1,6 @@
 package co.edu.unbosque.securitytutorial.jpa.repositories;
 
-import co.edu.unbosque.securitytutorial.jpa.entities.Owner;
+
 import co.edu.unbosque.securitytutorial.jpa.entities.Vet;
 
 import javax.persistence.EntityManager;
@@ -25,6 +25,14 @@ public class VetRepositoryImpl implements VetRepository {
             e.printStackTrace();
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Vet findByVet_id(String username) {
+        Vet vet = (Vet) entityManager.createNamedQuery("Vet.findByUsername",Vet.class)
+                .setParameter("username", username)
+                .getSingleResult();
+        return vet ;
     }
 
 }

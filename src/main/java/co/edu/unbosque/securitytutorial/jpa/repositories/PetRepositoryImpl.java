@@ -1,7 +1,7 @@
 package co.edu.unbosque.securitytutorial.jpa.repositories;
 
 import co.edu.unbosque.securitytutorial.jpa.entities.Pet;
-import co.edu.unbosque.securitytutorial.jpa.entities.UserApp;
+
 
 import javax.persistence.EntityManager;
 import java.util.Optional;
@@ -12,12 +12,6 @@ public class PetRepositoryImpl implements PetRepository{
 
     public PetRepositoryImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
-    }
-
-    @Override
-    public Optional<Pet> findByUsername(String pet_id) {
-        Pet pet = entityManager.find(Pet.class, pet_id);
-        return pet != null ? Optional.of(pet) : Optional.empty();
     }
 
     @Override
@@ -32,4 +26,14 @@ public class PetRepositoryImpl implements PetRepository{
         }
         return Optional.empty();
     }
+
+    @Override
+    public Pet findByPet_id(String pet_id) {
+        Pet pet = (Pet) entityManager.createNamedQuery("Owner.findByUsername",Pet.class)
+                .setParameter("username", pet_id)
+                .getSingleResult();
+        return pet ;
+    }
+
+
 }

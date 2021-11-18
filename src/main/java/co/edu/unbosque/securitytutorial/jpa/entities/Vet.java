@@ -6,6 +6,10 @@ import java.util.List;
 @Entity
 @Table(name = "vet")
 @PrimaryKeyJoinColumn
+@NamedQueries({
+        @NamedQuery(name = "Vet.findByUsername",
+                query = "SELECT a FROM Vet a WHERE a.username = :username")
+})
 public class Vet extends UserApp {
 
     @Column(name = "name", nullable = false)

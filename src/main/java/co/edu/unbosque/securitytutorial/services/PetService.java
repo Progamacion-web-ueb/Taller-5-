@@ -1,7 +1,10 @@
 package co.edu.unbosque.securitytutorial.services;
 
 
+import co.edu.unbosque.securitytutorial.jpa.entities.Owner;
 import co.edu.unbosque.securitytutorial.jpa.entities.Pet;
+import co.edu.unbosque.securitytutorial.jpa.repositories.OwnerRepository;
+import co.edu.unbosque.securitytutorial.jpa.repositories.OwnerRepositoryImpl;
 import co.edu.unbosque.securitytutorial.jpa.repositories.PetRepositoryImpl;
 import co.edu.unbosque.securitytutorial.jpa.repositories.PetRepository;
 import co.edu.unbosque.securitytutorial.resources.pojos.PetPOJO;
@@ -16,6 +19,7 @@ import java.util.Optional;
 public class PetService {
 
     PetRepository petRepository;
+    OwnerRepository ownerRepository;
 
     public Optional<PetPOJO> createPet(PetPOJO petPOJO) {
 
@@ -47,6 +51,19 @@ public class PetService {
         } else {
             return Optional.empty();
         }
+    }
+    public Owner findOwner_id(String owner_id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        ownerRepository = new OwnerRepositoryImpl(entityManager);
+        Owner owner= ownerRepository.findByUsername(owner_id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return owner;
 
     }
 

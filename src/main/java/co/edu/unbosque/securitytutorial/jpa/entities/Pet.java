@@ -8,13 +8,17 @@ import java.util.List;
 
 @Table(name = "pet")
 @Entity
-public class Pet {
+@NamedQueries({
+        @NamedQuery(name = "Pet.findByPet_id",
+                query = "SELECT a FROM Pet a WHERE a.pet_id = :pet_id")
+})
+public class Pet  {
 
     @Id
     @Column(name = "pet_id", nullable = false)
     private String pet_id;
 
-    @Column(name = "microchip", nullable = false, unique = true)
+    @Column(name = "microchip", nullable = true, unique = true)
     private Long microchip;
 
     @Column(name = "name", nullable = false)
@@ -32,11 +36,11 @@ public class Pet {
     @Column(name = "sex", nullable = false)
     private String sex;
 
-    @Column(name = "picture", nullable = false)
+    @Column(name = "picture", nullable = true)
     private String picture;
 
     @ManyToOne()
-    @JoinColumn(name = "owneer_id", referencedColumnName = "username")
+    @JoinColumn(name = "owner_id", referencedColumnName = "username")
     private Owner owner;
 
     @OneToMany(mappedBy = "pet", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)

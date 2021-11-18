@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface OwnerRepository {
 
     Optional<Owner> save(Owner owner);
+
+    Owner findByUsername(String Username);
 }

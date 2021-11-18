@@ -14,11 +14,12 @@ public class PetCaseResource {
 // se crea pet pero el idpet queda en null
 
     @POST
-    //@Path("/{}")
+    @Path("/{type}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(PetCasePOJO petCase) {
+    public Response create(PetCasePOJO petCase, @PathParam("type") String type) {
 
+        petCase.setType(type);
         Optional<PetCasePOJO> persistedPetCase = new PetCaseService().createPetCase(petCase);
 
         if (persistedPetCase.isPresent()) {

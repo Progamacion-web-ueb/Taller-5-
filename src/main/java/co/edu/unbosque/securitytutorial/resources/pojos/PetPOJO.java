@@ -109,4 +109,19 @@ public class PetPOJO {
     public void setOwner_id(Owner owner_id) {
         this.owner_id = owner_id;
     }
+
+    @Override
+    public String toString() {
+        return "PetPOJO{" +
+                "pet_id='" + pet_id + '\'' +
+                ", microchip=" + microchip +
+                ", name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", race='" + race + '\'' +
+                ", size='" + size + '\'' +
+                ", sex='" + sex + '\'' +
+                ", picture='" + picture + '\'' +
+                ", owner_id=" + owner_id +
+                '}';
+    }
 }

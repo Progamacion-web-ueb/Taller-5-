@@ -7,6 +7,10 @@ import java.util.List;
 @Table(name = "Owner")
 @PrimaryKeyJoinColumn
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQueries({
+        @NamedQuery(name = "Owner.findByUsername",
+                query = "SELECT a FROM Owner a WHERE a.username = :username")
+})
 public class Owner extends UserApp {
 
     @Column(name = "person_id", nullable = false, unique = true)

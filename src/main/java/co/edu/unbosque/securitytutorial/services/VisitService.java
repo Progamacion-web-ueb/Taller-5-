@@ -2,9 +2,11 @@ package co.edu.unbosque.securitytutorial.services;
 
 
 
+
+import co.edu.unbosque.securitytutorial.jpa.entities.Pet;
+import co.edu.unbosque.securitytutorial.jpa.entities.Vet;
 import co.edu.unbosque.securitytutorial.jpa.entities.Visit;
-import co.edu.unbosque.securitytutorial.jpa.repositories.VisitRepositoryImpl;
-import co.edu.unbosque.securitytutorial.jpa.repositories.VisitRepository;
+import co.edu.unbosque.securitytutorial.jpa.repositories.*;
 import co.edu.unbosque.securitytutorial.resources.pojos.VisitPOJO;
 
 import javax.ejb.Stateless;
@@ -17,6 +19,8 @@ import java.util.Optional;
 public class VisitService {
 
     VisitRepository visitRepository;
+    VetRepository vetRepository;
+    PetRepository petRepository;
 
     public Optional<VisitPOJO> createVisit(VisitPOJO visitPOJO) {
 
@@ -45,6 +49,33 @@ public class VisitService {
             return Optional.empty();
         }
 
+    }
+
+    public Vet findVet_id(String vet_id) {
+
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        vetRepository = new VetRepositoryImpl(entityManager);
+        Vet vet= vetRepository.findByVet_id(vet_id);
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return vet;
+
+    }
+    public Pet findPet_id(String pet_id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        petRepository = new PetRepositoryImpl(entityManager);
+        Pet pet= petRepository.findByPet_id(pet_id);
+
+
+        entityManager.close();
+        entityManagerFactory.close();
+
+        return pet;
     }
 
 }

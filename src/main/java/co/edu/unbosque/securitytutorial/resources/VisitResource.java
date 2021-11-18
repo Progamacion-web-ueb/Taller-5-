@@ -1,5 +1,9 @@
 package co.edu.unbosque.securitytutorial.resources;
 
+
+import co.edu.unbosque.securitytutorial.jpa.entities.Pet;
+import co.edu.unbosque.securitytutorial.jpa.entities.Vet;
+import co.edu.unbosque.securitytutorial.jpa.entities.Visit;
 import co.edu.unbosque.securitytutorial.resources.filters.Logged;
 import co.edu.unbosque.securitytutorial.resources.pojos.VisitPOJO;
 import co.edu.unbosque.securitytutorial.services.VisitService;
@@ -14,11 +18,17 @@ public class VisitResource {
     // se crea pet pero el pet_id  y vet_idqueda en null
 
     @POST
-    //@Path("/{}")
+    @Path("/{vet_id}/{pet_id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(VisitPOJO visit) {
+    public Response create(VisitPOJO visit, @PathParam("vet_id") String vet_id, @PathParam("pet_id") String pet_id) {
 
+        Vet vet = new VisitService().findVet_id(vet_id);
+        visit.setVet_id(vet);
+/*
+        Pet pet = new VisitService().findPet_id(pet_id);
+        visit.setPet_id(pet);
+*/
         Optional<VisitPOJO> persistedVisit = new VisitService().createVisit(visit);
 
         if (persistedVisit.isPresent()) {

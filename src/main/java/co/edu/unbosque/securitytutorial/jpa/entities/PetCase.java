@@ -12,7 +12,7 @@ public class PetCase {
     @Column(name = "created_at", nullable = false)
     private String created_at;
 
-    @Column(name = "type", nullable = false)
+    @Column(name = "type", nullable = true)
     private String type;
 
     @Column(name = "description", nullable = false)

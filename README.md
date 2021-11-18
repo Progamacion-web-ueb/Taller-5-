@@ -2,6 +2,8 @@
 
 Por Luis Esteban Castro
 
+# Enlace al video Explicación
+
 # Solicitudes PostMan
 {
 	"info": {
@@ -107,7 +109,7 @@ Por Luis Esteban Castro
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"pet_id\":\"pa21232\",\r\n\"microchip\":\"1223\",\r\n\"name\":\"lulu\",\r\n\"species\":\"dog\",\r\n\"race\":\"labrador\",\r\n\"size\":\"small\",\r\n\"sex\":\"male\",\r\n\"picture\":null,\r\n\"owner\":\r\n    {\r\n    \"username\":\"paco12234\"\r\n    }\r\n}\r\n",
+					"raw": "{\r\n\"pet_id\":\"pe34\",\r\n\"microchip\":null,\r\n\"name\":\"lulu\",\r\n\"species\":\"dog\",\r\n\"race\":\"labrador\",\r\n\"size\":\"small\",\r\n\"sex\":\"male\",\r\n\"picture\":null,\r\n\"owner\":\r\n    {\r\n    \"username\":\"paco123\"\r\n    }\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +117,7 @@ Por Luis Esteban Castro
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/SecurityTutorial-1.0-SNAPSHOT/api/pets/paco12234",
+					"raw": "http://localhost:8080/SecurityTutorial-1.0-SNAPSHOT/api/pets/paco123",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -125,7 +127,7 @@ Por Luis Esteban Castro
 						"SecurityTutorial-1.0-SNAPSHOT",
 						"api",
 						"pets",
-						"paco12234"
+						"paco123"
 					]
 				}
 			},
@@ -138,7 +140,7 @@ Por Luis Esteban Castro
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"case_id\":\"caso12\",\r\n\"created_at\":\"12/11/2021\",\r\n\"type\":\"perdida\",\r\n\"description\":\"se perdio el perro\",\r\n\"pet\":\r\n    {\r\n    \"pet_id\":\"pa212\"\r\n    }\r\n}\r\n\r\n",
+					"raw": "{\r\n\"case_id\":\"caso12223\",\r\n\"created_at\":\"12/11/2021\",\r\n\"type\":null,\r\n\"description\":\"se perdio el perro\",\r\n\"pet\":\r\n    {\r\n    \"pet_id\":\"pa212\"\r\n    }\r\n}\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -146,7 +148,7 @@ Por Luis Esteban Castro
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/SecurityTutorial-1.0-SNAPSHOT/api/petCases",
+					"raw": "http://localhost:8080/SecurityTutorial-1.0-SNAPSHOT/api/petCases/robo",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -155,7 +157,8 @@ Por Luis Esteban Castro
 					"path": [
 						"SecurityTutorial-1.0-SNAPSHOT",
 						"api",
-						"petCases"
+						"petCases",
+						"robo"
 					]
 				}
 			},
@@ -168,7 +171,7 @@ Por Luis Esteban Castro
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"visit_id\":\"caso12\",\r\n\"created_at\":\"12/11/2021\",\r\n\"type\":\"perdida\",\r\n\"description\":\"se perdio el perro\",\r\n\"pet\":\r\n    {\r\n    \"pet_id\":\"pa212\"\r\n    },\r\n\"vet\":\r\n    {\r\n    \"username\":\"vet123\"\r\n    }\r\n}\r\n\r\n",
+					"raw": "{\r\n\"visit_id\":\"caso1122\",\r\n\"created_at\":\"12/11/2021\",\r\n\"type\":\"perdida\",\r\n\"description\":\"se perdio el perro\",\r\n\"pet\":\r\n    {\r\n    \"pet_id\":\"pe33\"\r\n    },\r\n\"vet\":\r\n    {\r\n    \"username\":\"vet123\"\r\n    }\r\n}\r\n\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -176,7 +179,7 @@ Por Luis Esteban Castro
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/SecurityTutorial-1.0-SNAPSHOT/api/visits",
+					"raw": "http://localhost:8080/SecurityTutorial-1.0-SNAPSHOT/api/visits/vet123/pe33",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -185,7 +188,9 @@ Por Luis Esteban Castro
 					"path": [
 						"SecurityTutorial-1.0-SNAPSHOT",
 						"api",
-						"visits"
+						"visits",
+						"vet123",
+						"pe33"
 					]
 				}
 			},
